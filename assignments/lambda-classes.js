@@ -25,6 +25,9 @@ class Instructor extends Person { //child
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`
     }
+    score() {
+
+    }
 }
 
 class Student extends Person { //child
@@ -33,6 +36,7 @@ class Student extends Person { //child
         this.previousBackground = studAttrs.previousBackground
         this.className = studAttrs.className
         this.favSubjects = studAttrs.favSubjects
+        this.grade = Math.floor(Math.random() * 101) //This returns a random number between 0 and 100. Went to 101 to include 100
     }
     listsSubjects () {
         return `${this.favSubjects}`
@@ -42,6 +46,13 @@ class Student extends Person { //child
     }
     sprintChallenge (subject) {
         return `${this.name} has begun the sprint challenge on ${subject}`
+    }
+    graduate () {
+        if (this.grade < 70) {
+            return `You Graduate!`
+        } else {
+            return `Goes back to grading their assignment`
+        }
     }
 
 }
@@ -134,26 +145,26 @@ const fred = new Instructor({
 // console.log(dan.grade('Jade','HTML'))
 
 
-console.log(Fred.name);
-console.log(Fred.age);
-console.log(Fred.location);
-console.log(fred.specialty);
-console.log(Fred.favLanguage);
-console.log(Fred.catchPhrase);
-console.log(Fred.demo('PHP'))
-console.log(dan.grade('Chris','React'))
+// console.log(Fred.name);
+// console.log(Fred.age);
+// console.log(Fred.location);
+// console.log(fred.specialty);
+// console.log(Fred.favLanguage);
+// console.log(Fred.catchPhrase);
+// console.log(Fred.demo('PHP'))
+// console.log(dan.grade('Chris','React'))
 
 //============ Student Testing
 
-// console.log(isaiah.name);
-// console.log(isaiah.age);
-// console.log(isaiah.location);
-// console.log(isaiah.previousBackground);
-// console.log(isaiah.className);
-// console.log(isaiah.favSubjects);
-// console.log(isaiah.listsSubjects(isaiah.listsSubjects))
-// console.log(isaiah.PRAssignment('Bootstrap'))
-// console.log(isaiah.sprintChallenge('Advance CSS'))
+console.log(isaiah.name);
+console.log(isaiah.age);
+console.log(isaiah.location);
+console.log(isaiah.previousBackground);
+console.log(isaiah.className);
+console.log(isaiah.favSubjects);
+console.log(isaiah.listsSubjects(isaiah.listsSubjects))
+console.log(isaiah.PRAssignment('Bootstrap'))
+console.log(isaiah.sprintChallenge('Advance CSS'))
 
 
 // console.log(nisa.name);
