@@ -26,7 +26,7 @@ class Instructor extends Person { //child
         return `${student.name} receives a perfect score on ${subject}`
     }
     grading(student, grade) {
-        return ` Your grade ${student.name} is  ${grade}`;
+        return `${student.name}, ${this.name} has given you a grade of ${grade}`;
     }
 }
 
@@ -51,7 +51,7 @@ class Student extends Person { //child
         if (this.grade >= 70) {
             return `Congratulations ${this.name}! Your grade is ${grade}. You have successfully graduated!`
         } else (this.grade < 70); {
-            return `I am sorry ${this.name}. Your grade is only ${grade}.`
+            return `I am sorry ${this.name}. Your grade is only ${grade}. You will not be able to gradate`
         }
     }
 
@@ -188,6 +188,8 @@ console.log(isaiah.graduate(isaiah.grade))
 // console.log(nisa.listsSubjects(nisa.listsSubjects))
 // console.log(isaiah.PRAssignment('React'))
 // console.log(nisa.sprintChallenge('JavaScript III'))
+console.log(nisa.grade)
+console.log(nisa.graduate(nisa.grade))
 
 //============ Manager Testing
 
@@ -201,6 +203,7 @@ console.log(isaiah.graduate(isaiah.grade))
 // console.log(marguel.standUp('Web 21'));
 // console.log(marguel.debugsCode('Nisa','JavaScript II'));
 // console.log(marguel.speak(marguel));
+console.log(marguel.grading(nisa, nisa.grade));
 
 // console.log(brandon.name);
 // console.log(brandon.age);
