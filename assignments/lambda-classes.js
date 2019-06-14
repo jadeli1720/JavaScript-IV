@@ -25,8 +25,8 @@ class Instructor extends Person { //child
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`
     }
-    score() {
-
+    grading(student, grade) {
+        return ` Your grade ${student.name} is  ${grade}`;
     }
 }
 
@@ -36,7 +36,7 @@ class Student extends Person { //child
         this.previousBackground = studAttrs.previousBackground
         this.className = studAttrs.className
         this.favSubjects = studAttrs.favSubjects
-        this.grade = Math.floor(Math.random() * 101) //This returns a random number between 0 and 100. Went to 101 to include 100
+        this.grade = studAttrs.grade
     }
     listsSubjects () {
         return `${this.favSubjects}`
@@ -47,11 +47,11 @@ class Student extends Person { //child
     sprintChallenge (subject) {
         return `${this.name} has begun the sprint challenge on ${subject}`
     }
-    graduate () {
-        if (this.grade < 70) {
-            return `You Graduate!`
-        } else {
-            return `Goes back to grading their assignment`
+    graduate (grade) {
+        if (this.grade >= 70) {
+            return `Congratulations ${this.name}! Your grade is ${grade}. You have successfully graduated!`
+        } else (this.grade < 70); {
+            return `I am sorry ${this.name}. Your grade is only ${grade}.`
         }
     }
 
@@ -68,7 +68,7 @@ class ProjectManager extends Instructor { //grandchild
     }
 
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student}'s code on ${subject}`
+        return `${this.name} debugs ${student.name}'s code on ${subject}`
     }
 }
 
@@ -98,6 +98,7 @@ const fred = new Instructor({
     previousBackground: 'High School last month',
     className: 'Web21',
     favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: Math.floor(Math.random() * 101)
 });
 
     const nisa = new Student({
@@ -107,6 +108,7 @@ const fred = new Instructor({
     previousBackground: 'Debt Collector',
     className: 'Web21',
     favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: Math.floor(Math.random() * 101)
 });
 
 
@@ -134,6 +136,8 @@ const fred = new Instructor({
 
 
 
+
+
 //============ Instructor Testing
 // console.log(dan.name);
 // console.log(dan.age);
@@ -143,28 +147,35 @@ const fred = new Instructor({
 // console.log(dan.catchPhrase);
 // console.log(dan.demo('JavaScript'))
 // console.log(dan.grade('Jade','HTML'))
+// console.log(dan.speak(dan));
+console.log(dan.grading(isaiah, isaiah.grade));
 
 
-// console.log(Fred.name);
-// console.log(Fred.age);
-// console.log(Fred.location);
+// console.log(fred.name);
+// console.log(fred.age);
+// console.log(fred.location);
 // console.log(fred.specialty);
-// console.log(Fred.favLanguage);
-// console.log(Fred.catchPhrase);
-// console.log(Fred.demo('PHP'))
-// console.log(dan.grade('Chris','React'))
+// console.log(fred.favLanguage);
+// console.log(fred.catchPhrase);
+// console.log(fred.demo('PHP'))
+// console.log(fred.grade('Chris','React'))
+// console.log(fred.speak(fred));
 
 //============ Student Testing
 
-console.log(isaiah.name);
-console.log(isaiah.age);
-console.log(isaiah.location);
-console.log(isaiah.previousBackground);
-console.log(isaiah.className);
-console.log(isaiah.favSubjects);
-console.log(isaiah.listsSubjects(isaiah.listsSubjects))
-console.log(isaiah.PRAssignment('Bootstrap'))
-console.log(isaiah.sprintChallenge('Advance CSS'))
+// console.log(isaiah.name);
+// console.log(isaiah.age);
+// console.log(isaiah.location);
+// console.log(isaiah.previousBackground);
+// console.log(isaiah.className);
+// console.log(isaiah.favSubjects);
+// console.log(isaiah.speak(isaiah));
+// console.log(isaiah.listsSubjects(isaiah.listsSubjects))
+// console.log(isaiah.PRAssignment('Bootstrap'))
+// console.log(isaiah.sprintChallenge('Advance CSS'))
+console.log(isaiah.grade)
+console.log(isaiah.graduate(isaiah.grade))
+
 
 
 // console.log(nisa.name);
@@ -173,6 +184,7 @@ console.log(isaiah.sprintChallenge('Advance CSS'))
 // console.log(nisa.previousBackground);
 // console.log(nisa.className);
 // console.log(nisa.favSubjects);
+// console.log(nisa.speak(nisa));
 // console.log(nisa.listsSubjects(nisa.listsSubjects))
 // console.log(isaiah.PRAssignment('React'))
 // console.log(nisa.sprintChallenge('JavaScript III'))
@@ -188,6 +200,7 @@ console.log(isaiah.sprintChallenge('Advance CSS'))
 // console.log(marguel.catchPhrase);
 // console.log(marguel.standUp('Web 21'));
 // console.log(marguel.debugsCode('Nisa','JavaScript II'));
+// console.log(marguel.speak(marguel));
 
 // console.log(brandon.name);
 // console.log(brandon.age);
@@ -198,3 +211,4 @@ console.log(isaiah.sprintChallenge('Advance CSS'))
 // console.log(brandon.catchPhrase);
 // console.log(brandon.standUp('Web 21'));
 // console.log(brandon.debugsCode('Isaiah','Flexbox'));
+// console.log(brandon.speak(brandon));
